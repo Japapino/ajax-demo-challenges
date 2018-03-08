@@ -1,6 +1,13 @@
 // Create new content for the sidebar element that will update when the user clicks a button
+const $asideContent = $('#asideContent')
+const button = document.querySelector('.container aside .refresh')
+const refreshButton = () => {
+	$asideContent.load('../sidebar.html')
+}
+button.addEventListener('click', refreshButton); 
 
 // Use the Star Wars API to create HTML elements out
+
 // of character information and add it to the main element
 
 // Create a new CSS sheet with new style rules and
