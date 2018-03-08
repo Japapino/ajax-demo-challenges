@@ -7,8 +7,19 @@ const refreshButton = () => {
 button.addEventListener('click', refreshButton); 
 
 // Use the Star Wars API to create HTML elements out
-
 // of character information and add it to the main element
+
+
+var xhr = new XMLHttpRequest(); 
+xhr.onreadystatechange = function() {
+	if (this.readyState == 4 && this.status == 200) {
+		const res = JSON.parse(xhr.responseText); 
+		console.log({res})
+		document.querySelector('main').innerHTML = "<p>" + res.name + "</p>";
+	}
+};
+xhr.open("GET", "https://swapi.co/api/people/1/", true);
+xhr.send();
 
 // Create a new CSS sheet with new style rules and
 // update elements on the page 10 seconds after the page loads
